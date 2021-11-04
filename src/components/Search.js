@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [term, setTerm] = useState("programming");
+  const [term, setTerm] = useState("");
   const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
 
@@ -18,7 +18,7 @@ const Search = () => {
 
   useEffect(() => {
     const search = async () => {
-      const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
+      const { data } = await axios.get("https://ar.wikipedia.org/w/api.php", {
         params: {
           action: "query",
           list: "search",
@@ -43,7 +43,7 @@ const Search = () => {
             className="ui button"
             href={`https://en.wikipedia.org?curid=${result.pageid}`}
           >
-            Go
+            معلومات اكثر
           </a>
         </div>
         <div className="content">
